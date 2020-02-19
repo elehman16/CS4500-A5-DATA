@@ -10,7 +10,7 @@ def string_to_mb(s):
     return len(s.encode('utf-8')) / 1000000
 
 def gen_data(mb_size, num_columns):
-    column = '1,' * num_columns + '\n'
+    column = ('1,' * num_columns)[:-1] + '\n'
     column_bytes = string_to_mb(column)
     num_rows = int(mb_size / column_bytes) + 1        
     return column * num_rows
